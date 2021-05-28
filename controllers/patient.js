@@ -3,14 +3,24 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 
-const Patient =
+const Patient = require('../models/patient.js')
 
-
-    app.get('/', (req, res) => {
-        res.send('Covid-19 Vaccination Records')
+//index route
+router.get('/', (req, res) => {
+    Patient.find({}, (error, allFruits) => {
+        if (error) {
+            res.send(error)
+        } else {
+            res.render('index.ejs', {
+                patient: allPatient
+            });
+        }
     })
+});
 
 
-router.get('/records', (req, res) => {
-    res.render('index.ejs')
-})
+
+
+
+
+module.exports = router;

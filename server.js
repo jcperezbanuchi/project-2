@@ -28,14 +28,7 @@ mongoose.connect(`mongodb://localhost:27017/${MONGODBNAME}`, {
 app.use(methodOverride('_method'))
 
 
-app.get('/', (req, res) => {
-    res.send('Covid-19 Vaccination Records')
-})
 
-
-app.get('/records', (req, res) => {
-    res.render('index.ejs')
-})
 
 app.listen(PORT, (req, res) => {
     console.log('up and running')
