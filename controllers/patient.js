@@ -33,7 +33,6 @@ router.post('/', (req, res) => {
 
 //show 
 router.get('/:id', (req, res) => {
-    console.log(req.params)
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('show.ejs', {
             patient: foundPatient
@@ -42,12 +41,18 @@ router.get('/:id', (req, res) => {
 })
 
 //EDIT
-router.put('/:id', (req, res) => {
-    Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
-        res.redirect('/patients')
+// router.put('/:id', (req, res) => {
+//     Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
+//         res.redirect('/patients')
+//     })
+// })
+
+//Delete
+router.delete('/:id', (req, res) => {
+    Fruit.findByIdAndRemove(req.params.id, (error, deletedFruit) => {
+        res.redirect('/fruits')
     })
 })
-
 
 
 module.exports = router;
