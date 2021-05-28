@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extend: true }))
 //     saveUninitialized: false
 // }))
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + `YOUR DATABASE NAME`;
+// const MONGODBNAME = process.env.MONGODBNAME || 'mongodb://localhost:27017/' + `project-2-records`;
 
 mongoose.connect(`mongodb://localhost:27017/${MONGODBNAME}`, {
     useNewUrlParser: true,
@@ -27,7 +27,8 @@ mongoose.connect(`mongodb://localhost:27017/${MONGODBNAME}`, {
 //Method Override
 app.use(methodOverride('_method'))
 
-
+const patientControllers = require('./controllers/patient.js');
+app.use('/patients', patientControllers);
 
 
 app.listen(PORT, (req, res) => {
