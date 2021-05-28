@@ -5,8 +5,7 @@ const methodOverride = require('method-override')
 
 //app configuration
 const app = express()
-const MONGODBNAME = process.env.MONGODBNAME
-// const MONGODBNAME = process.env.MONGODBNAME || 'mongodb://localhost:27017/' + `vaccine-records`;
+const MONGODBNAME = process.env.MONGODBNAME || 'mongodb://localhost:27017/' + 'vaccine-records';
 
 //middleware
 app.use(express.urlencoded({ extend: true }))
@@ -19,7 +18,7 @@ app.use(express.urlencoded({ extend: true }))
 
 
 //external middleware
-mongoose.connect(`mongodb://localhost:27017/${MONGODBNAME}`, {
+mongoose.connect(MONGODBNAME, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
@@ -47,5 +46,3 @@ app.listen(PORT, (req, res) => {
 
 
 
-
-// mongodb + srv://juanco20:<password>@cluster0.rcyr2.mongodb.net/project-2-records?retryWrites=true&w=majority
