@@ -15,11 +15,27 @@
     </h1>
     <ul>
         <li>
-            <%=patient.address%>
+            <%=patient.dob%>
         </li>
         <li>
-            <%=patient.phoneNumber%>
+            <%=patient.vaccine%>
         </li>
+        <li>
+            <%=patient.firstDose%>
+        </li>
+
+        <li>
+            <%if(patient.secondDose===undefined){%>
+                Doesn't have the 2nd dose.
+
+                <%}else{%>
+                    <%=patient.secondDose%>
+                        <% }%>
+
+        </li>
+
+
+
 </body>
 </ul>
 

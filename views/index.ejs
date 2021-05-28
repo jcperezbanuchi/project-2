@@ -14,7 +14,14 @@
     <ul>
         <%for(let i=0; i < patient.length;i++){%>
             <li>
-                <%=patient[i].name %>
+                <a href="/patients/<%=patient[i].id%>">
+                    <%=patient[i].name %>
+                </a>
+                <% if (patient[i].vaccinated===true){ %>
+                    fully vaccinated
+                    <%} else { %>
+                        missing 1 dose
+                        <% }%>
             </li>
             <%}%>
     </ul>

@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
             res.send(error)
         } else {
             res.render('index.ejs', {
-                patient: allPatients
+                patient: allPatients,
+
             });
         }
     })
@@ -30,8 +31,9 @@ router.post('/', (req, res) => {
     })
 })
 
-//
+//show 
 router.get('/:id', (req, res) => {
+    console.log(req.params)
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('show.ejs', {
             patient: foundPatient
