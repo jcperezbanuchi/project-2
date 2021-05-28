@@ -5,8 +5,8 @@ const patientSchema = new mongoose.Schema({
     dob: { type: String, require: true },
     vaccinated: { type: Boolean },
     vaccine: { type: String, require: true },
-    firstDose: Date,
-    secondDose: Date
+    firstDose: String,
+    secondDose: String
 })
 
 //this is the line that actually creates the collection in mongo

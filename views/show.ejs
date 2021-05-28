@@ -15,23 +15,28 @@
     </h1>
     <ul>
         <li>
-            <%=patient.dob%>
+            Date of Birth: <%=patient.dob%>
         </li>
         <li>
-            <%=patient.vaccine%>
+            Manufacturer: <%=patient.vaccine%>
         </li>
         <li>
-            <%=patient.firstDose%>
+            Date of 1st dose: <%=patient.firstDose%>
         </li>
 
         <li>
-            <%if(patient.secondDose===undefined){%>
+            Date of 2nd Dose<%if(patient.secondDose==='undefined'){%>
                 Doesn't have the 2nd dose.
-
                 <%}else{%>
                     <%=patient.secondDose%>
                         <% }%>
 
+        </li>
+
+        <li>
+            <%if(patient.vaccinated===true){%>
+                Fully Vaccinated
+                <%}%>
         </li>
 
     </ul>

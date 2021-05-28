@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 
 const Patient = require('../models/patient.js')
 
+
 //index route
 router.get('/', (req, res) => {
     Patient.find({}, (error, allPatients) => {
@@ -25,8 +26,13 @@ router.get('/new', (req, res) => {
 
 //create
 router.post('/', (req, res) => {
+    if (req.body.vaccinated === 'on') {
+        req.body.vaccinated = true
+    } else {
+        req.body.vaccinated = false
+    }
+    Patient.create(req.body, (error, createdPatient) => {
 
-    Patient.create(req.body, (error, createdFruit) => {
         res.redirect('/patients')
     })
 })
