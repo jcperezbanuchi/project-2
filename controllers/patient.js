@@ -33,6 +33,7 @@ router.post('/', (req, res) => {
 
 //show 
 router.get('/:id', (req, res) => {
+
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('show.ejs', {
             patient: foundPatient
@@ -49,8 +50,8 @@ router.get('/:id', (req, res) => {
 
 //Delete
 router.delete('/:id', (req, res) => {
-    Fruit.findByIdAndRemove(req.params.id, (error, deletedFruit) => {
-        res.redirect('/fruits')
+    Patient.findByIdAndRemove(req.params.id, (error, deletedFruit) => {
+        res.redirect('/patients')
     })
 })
 
