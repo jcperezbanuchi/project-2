@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/records', (req, res) => {
-    res.send('RECORDS')
+    res.render('index.ejs')
 })
 
 app.listen(PORT, (req, res) => {
