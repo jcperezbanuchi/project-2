@@ -10,10 +10,13 @@
 
 <body>
     <h1>Covid-19 Vaccine Records</h1>
-    <%for(let i=0; i < patient.length;i++){%>
-        <%=patient.name %>
-
+    <ul>
+        <%for(let i=0; i < patient.length;i++){%>
+            <li>
+                <%=patient[i].name %>
+            </li>
             <%}%>
+    </ul>
 </body>
 
 </html>
