@@ -18,7 +18,13 @@ router.get('/', (req, res) => {
     })
 });
 
-
+router.get('/:id', (req, res) => {
+    Patient.findById(req.params.id, (error, foundPatient) => {
+        res.render('show.ejs', {
+            patient: foundPatient
+        })
+    })
+})
 
 
 
