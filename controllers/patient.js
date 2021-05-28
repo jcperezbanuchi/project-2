@@ -25,7 +25,7 @@ router.get('/new', (req, res) => {
 //create
 router.post('/', (req, res) => {
 
-    Fruit.create(req.body, (error, createdFruit) => {
+    Patient.create(req.body, (error, createdFruit) => {
         res.redirect('/patients')
     })
 })
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
 
 //EDIT
 router.put('/:id', (req, res) => {
-    Fruit.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
+    Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
         res.redirect('/patients')
     })
 })
