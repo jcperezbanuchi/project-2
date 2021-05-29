@@ -36,6 +36,11 @@ app.use(methodOverride('_method'))
 const patientControllers = require('./controllers/patient.js');
 app.use('/patients', patientControllers);
 
+const userController = require('./controllers/user_controller.js')
+app.use('/users', userController)
+
+
+
 app.get('/', (req, res) => {
     res.redirect('/patients')
 })

@@ -10,7 +10,7 @@
 
 <body>
     <form action="/patients/<%=patient.id%>?_method=PUT" method=" POST">
-        Name: <input type="text" name="name" value="<%=patient.dob%>" />
+        Name: <input type="text" name="name" value="<%=patient.name%>" />
         <br>
         Date of Birth: <input type="date" name="dob" value="<%=patient.dob%>" />
         <br>
@@ -22,7 +22,7 @@
         <br>
         Fully Vaccinated: <input type="checkbox" name="vaccinated" value="<%=patient.vaccinated%>" />
         <br>
-        <input type="submit" name="" value="Add Patient">
+        <input type="submit" name="" value="Edit Patient">
     </form>
     <button><a href="/patients">Back</a></button>
 </body>
