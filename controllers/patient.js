@@ -47,6 +47,16 @@ router.get('/:id', (req, res) => {
     })
 })
 
+//Edit show 
+router.get('/:id/edit', (req, res) => {
+    Patient.findById(req.params.id, (error, foundPatient) => {
+        res.render('edit.ejs', {
+            patient: foundPatient
+        })
+    })
+})
+
+
 // EDIT
 router.put('/:id', (req, res) => {
     Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {

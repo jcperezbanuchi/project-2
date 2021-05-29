@@ -25,7 +25,8 @@
                             <form action="/patients/<%=patient[i].id %>?_method=DELETE" method="POST">
                                 <input type="submit" value="Delete">
                             </form>
-
+                            <!-- edit link -->
+                            <a href="/patients/<%=patient[i].id%>/edit">Edit</a>
             </li>
             <%}%>
 
