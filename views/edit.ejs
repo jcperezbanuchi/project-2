@@ -10,9 +10,9 @@
 
 <body>
     <form action="/patients/<%=patient.id%>?_method=PUT" method=" POST">
-        Name: <input type="text" name="name" />
+        Name: <input type="text" name="name" value="<%=patient.dob%>" />
         <br>
-        Date of Birth: <input type="date" name="dob" value="<%=patient.name%>" />
+        Date of Birth: <input type="date" name="dob" value="<%=patient.dob%>" />
         <br>
         Vaccine Manufacturer: <input type="text" name="vaccine" value="<%=patient.vaccine%>" />
         <br>
