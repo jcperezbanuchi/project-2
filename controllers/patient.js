@@ -47,12 +47,12 @@ router.get('/:id', (req, res) => {
     })
 })
 
-//EDIT
-// router.put('/:id', (req, res) => {
-//     Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
-//         res.redirect('/patients')
-//     })
-// })
+// EDIT
+router.put('/:id', (req, res) => {
+    Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
+        res.redirect('/patients')
+    })
+})
 
 //Delete
 router.delete('/:id', (req, res) => {
