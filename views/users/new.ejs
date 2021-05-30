@@ -10,8 +10,9 @@
 <body>
     <h1>Create User</h1>
     <form action="/users/" , method="POST">
-        Username: <input type="text" name="username">
-        Password: <input type="password" name="password">
+        Name: <input type="text" name="name" required>
+        Username: <input type="text" name="username" required>
+        Password: <input type="password" name="password" required>
         <br>
         <input type="submit" value="Create User">
     </form>
