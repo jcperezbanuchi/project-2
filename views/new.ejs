@@ -11,13 +11,13 @@
 <body>
     <h1>Add a New Patient</h1>
     <form action="/patients" method="POST">
-        Name: <input type="text" name="name" />
+        Name: <input type="text" name="name" required />
         <br>
-        Date of Birth: <input type="date" name="dob" />
+        Date of Birth: <input type="date" name="dob" required />
         <br>
-        Vaccine Manufacturer: <input type="text" name="vaccine" />
+        Vaccine Manufacturer: <input type="text" name="vaccine" required />
         <br>
-        First Dose date: <input type="date" name="firstDose" />
+        First Dose date: <input type="date" name="firstDose" required />
         <br>
         Second Dose Date: <input type="date" name="secondDose" />
         <br>
