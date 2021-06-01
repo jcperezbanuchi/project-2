@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3000
 const methodOverride = require('method-override')
+const session = require('express-session')
 
 //app configuration
 const app = express()
@@ -9,11 +10,11 @@ const MONGODBNAME = process.env.MONGODBNAME || 'mongodb://localhost:27017/' + 'v
 
 //middleware
 app.use(express.urlencoded({ extend: true }))
-// app.use(session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 
 
