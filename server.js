@@ -20,6 +20,8 @@ app.use(
     })
 )
 
+//static files
+app.use(express.static('public'))
 
 
 //external middleware
@@ -57,6 +59,9 @@ const isAuthenticated = (req, res, next) => {
     }
 }
 
+app.get('/', (req, res) => {
+    res.redirect('/patients')
+})
 
 app.listen(PORT, (req, res) => {
     console.log('up and running')
