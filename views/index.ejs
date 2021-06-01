@@ -30,7 +30,7 @@
     </nav>
     <ul>
         <%for(let i=0; i < patient.length;i++){%>
-            <li>
+            <li class='patient'>
                 <a href="/patients/<%=patient[i].id%>">
                     <%=patient[i].name %>
                 </a>
@@ -43,7 +43,7 @@
                                 <input type="submit" value="Delete">
                             </form>
                             <!-- edit link -->
-                            <a href="/patients/<%=patient[i].id%>/edit">Edit</a>
+                            <button><a href="/patients/<%=patient[i].id%>/edit">Edit</a></button>
             </li>
             <%}%>
 
