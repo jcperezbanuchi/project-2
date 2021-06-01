@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         } else {
             res.render('index.ejs', {
                 patient: allPatients,
-
+                currentUser: req.session.currentUser
             });
         }
     })
@@ -32,7 +32,6 @@ router.post('/', (req, res) => {
         req.body.vaccinated = false
     }
     Patient.create(req.body, (error, createdPatient) => {
-
         res.redirect('/patients')
     })
 })
@@ -42,7 +41,8 @@ router.get('/:id', (req, res) => {
 
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('show.ejs', {
-            patient: foundPatient
+            patient: foundPatient,
+            currentUser: req.session.currentUser
         })
     })
 })
@@ -51,7 +51,8 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('edit.ejs', {
-            patient: foundPatient
+            patient: foundPatient,
+            currentUser: req.session.currentUser
         })
     })
 })

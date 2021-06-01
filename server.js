@@ -1,6 +1,7 @@
 //dependencies
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config();
 const PORT = process.env.PORT || 3000
 const methodOverride = require('method-override')
 const session = require('express-session')
@@ -11,11 +12,13 @@ const MONGODBNAME = process.env.MONGODBNAME || 'mongodb://localhost:27017/' + 'v
 
 //middleware
 app.use(express.urlencoded({ extend: true }))
-app.use(session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false
-}))
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+)
 
 
 
@@ -28,6 +31,7 @@ mongoose.connect(MONGODBNAME, {
 mongoose.connection.once('open', () => {
     console.log('connected to mongo')
 })
+
 
 
 //Method Override
@@ -44,7 +48,6 @@ app.use('/users', userController)
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
-
 //custom middleware
 const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {
@@ -53,6 +56,7 @@ const isAuthenticated = (req, res, next) => {
         res.redirect('/sessions/new')
     }
 }
+
 
 app.listen(PORT, (req, res) => {
     console.log('up and running')
