@@ -1,3 +1,4 @@
+//dependencies
 const express = require('express')
 const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3000
@@ -40,11 +41,18 @@ app.use('/patients', patientControllers);
 const userController = require('./controllers/user_controller.js')
 app.use('/users', userController)
 
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionsController)
 
 
-app.get('/', (req, res) => {
-    res.redirect('/patients')
-})
+//custom middleware
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+        return next()
+    } else {
+        res.redirect('/sessions/new')
+    }
+}
 
 app.listen(PORT, (req, res) => {
     console.log('up and running')
