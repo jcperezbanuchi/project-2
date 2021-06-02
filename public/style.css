@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+:root{
+    --dark: #2b2d42;
+    --light: #adb5bd;
+    --border: #dee2e6;
+    --border-btn: #edf2f4;
+} 
+
 body{
     background-color: beige;
+    font-family: 'Barlow', sans-serif ;
 }
 
 li{

@@ -10,45 +10,52 @@
 </head>
 
 <body>
-    <h1>Covid-19 Vaccine Patients Records</h1>
-    <nav>
-        <ul class="nav">
-            <li><a href="/patients/new">Add a new Patient</a></li>
-            <% if (currentUser) { %>
-                <li>Welcome <%= currentUser.username %>
+    <header id='header'>
+        <h1>Covid-19 Vaccine Patients Records</h1>
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <ul>
+                        <li><a href="/patients/new">Add a new Patient</a></li>
+                        <% if (currentUser) { %>
+                            <li>Welcome <%= currentUser.username %>
+                            </li>
+                            <li>
+                                <form action="/sessions?_method=DELETE" method="POST">
+                                    <input type="submit" value="Log Out" class="btn-small red" />
+                                </form>
+                            </li>
+                            <% } else { %>
+                                <li><a href="/users/new">Sign Up</a></li>
+                                <li><a href="/sessions/new">Log In</a></li>
+                                <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main id="site-main">
+        <ul>
+            <%for(let i=0; i < patient.length;i++){%>
+                <li class='patient'>
+                    <a href="/patients/<%=patient[i].id%>">
+                        <%=patient[i].name %>
+                    </a>
+                    <% if (patient[i].vaccinated===true ){ %>
+                        is fully vaccinated
+                        <%} else { %>
+                            missing 1 dose
+                            <% }%>
+                                <form action="/patients/<%=patient[i].id %>?_method=DELETE" method="POST">
+                                    <input type="submit" value="Delete">
+                                </form>
+                                <!-- edit link -->
+                                <button><a href="/patients/<%=patient[i].id%>/edit">Edit</a></button>
                 </li>
-                <li>
-                    <form action="/sessions?_method=DELETE" method="POST">
-                        <input type="submit" value="Log Out" class="btn-small red" />
-                    </form>
-                </li>
-                <% } else { %>
-                    <li><a href="/users/new">Sign Up</a></li>
-                    <li><a href="/sessions/new">Log In</a></li>
-                    <% } %>
+                <%}%>
+
         </ul>
-    </nav>
-    <ul>
-        <%for(let i=0; i < patient.length;i++){%>
-            <li class='patient'>
-                <a href="/patients/<%=patient[i].id%>">
-                    <%=patient[i].name %>
-                </a>
-                <% if (patient[i].vaccinated===true ){ %>
-                    is fully vaccinated
-                    <%} else { %>
-                        missing 1 dose
-                        <% }%>
-                            <form action="/patients/<%=patient[i].id %>?_method=DELETE" method="POST">
-                                <input type="submit" value="Delete">
-                            </form>
-                            <!-- edit link -->
-                            <button><a href="/patients/<%=patient[i].id%>/edit">Edit</a></button>
-            </li>
-            <%}%>
-
-    </ul>
-
+    </main>
 </body>
 
 </html>
