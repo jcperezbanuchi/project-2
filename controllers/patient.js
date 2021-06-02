@@ -7,7 +7,7 @@ const Patient = require('../models/patient.js')
 
 
 //index route
-router.get('/', (req, res) => {
+router.get('/patients/', (req, res) => {
     Patient.find({}, (error, allPatients) => {
         if (error) {
             res.send(error)
@@ -19,13 +19,18 @@ router.get('/', (req, res) => {
         }
     })
 });
+//login or register route
+router.get('/', (req, res) => {
+    res.render('login.ejs')
+})
+
 //new route
-router.get('/new', (req, res) => {
+router.get('patients/new', (req, res) => {
     res.render('new.ejs')
 })
 
 //create
-router.post('/', (req, res) => {
+router.post('/patients', (req, res) => {
     if (req.body.vaccinated === 'on') {
         req.body.vaccinated = true
     } else {
@@ -37,7 +42,7 @@ router.post('/', (req, res) => {
 })
 
 //show 
-router.get('/:id', (req, res) => {
+router.get('/patients/:id', (req, res) => {
 
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('show.ejs', {
@@ -48,7 +53,7 @@ router.get('/:id', (req, res) => {
 })
 
 //Edit show 
-router.get('/:id/edit', (req, res) => {
+router.get('/patients/:id/edit', (req, res) => {
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('edit.ejs', {
             patient: foundPatient,
@@ -59,14 +64,14 @@ router.get('/:id/edit', (req, res) => {
 
 
 // EDIT
-router.put('/:id', (req, res) => {
+router.put('/patients/:id', (req, res) => {
     Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
         res.redirect('/patients')
     })
 })
 
 //Delete
-router.delete('/:id', (req, res) => {
+router.delete('/patients/:id', (req, res) => {
     Patient.findByIdAndRemove(req.params.id, (error, deletedFruit) => {
         res.redirect('/patients')
     })

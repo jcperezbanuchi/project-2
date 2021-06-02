@@ -16,4 +16,5 @@ li{
     list-style: none;
     display:inline-block;
     border: 2px solid cadetblue;
+    padding: 10px;
 }

@@ -42,14 +42,12 @@ app.use(methodOverride('_method'))
 
 //controllers
 const patientControllers = require('./controllers/patient.js');
-app.use('/patients', patientControllers);
-
-const userController = require('./controllers/user_controller.js')
-app.use('/users', userController)
-
 const sessionsController = require('./controllers/sessions_controller.js')
-app.use('/sessions', sessionsController)
+const userController = require('./controllers/user_controller.js')
 
+app.use('/users', userController)
+app.use('/sessions', sessionsController)
+app.use(patientControllers);
 //custom middleware
 const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {
@@ -59,9 +57,6 @@ const isAuthenticated = (req, res, next) => {
     }
 }
 
-app.get('/', (req, res) => {
-    res.redirect('/patients')
-})
 
 app.listen(PORT, (req, res) => {
     console.log('up and running')
