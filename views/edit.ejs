@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="/patients/<%=patient.id%>?_method=PUT" method=" POST">
+    <form action="/patients/<%=patient.id%>?_method=PUT" method="POST">
         Name: <input type="text" name="name" value="<%=patient.name%>" />
         <br>
         Date of Birth: <input type="date" name="dob" value="<%=patient.dob%>" />
@@ -20,9 +20,11 @@
         <br>
         Second Dose Date: <input type="date" name="secondDose" value="<%=patient.secondDose%>" />
         <br>
-        Fully Vaccinated: <input type="checkbox" name="vaccinated" value="<%=patient.vaccinated%>" />
-        <br>
-        <input type="submit" name="" value="Edit Patient">
+        Fully Vaccinated: <input type="checkbox" name="fullyVaccinated" <% if (patient.fullyVaccinated===true) { %>
+        checked
+        <% } %> />
+            <br>
+            <input type="submit" name="" value="Edit Patient">
     </form>
     <button><a href="/patients">Back</a></button>
 </body>

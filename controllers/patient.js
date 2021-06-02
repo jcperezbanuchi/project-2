@@ -25,16 +25,16 @@ router.get('/', (req, res) => {
 })
 
 //new route
-router.get('patients/new', (req, res) => {
+router.get('/patients/new', (req, res) => {
     res.render('new.ejs')
 })
 
 //create
 router.post('/patients', (req, res) => {
-    if (req.body.vaccinated === 'on') {
-        req.body.vaccinated = true
+    if (req.body.fullyVaccinated === 'on') {
+        req.body.fullyVaccinated = true
     } else {
-        req.body.vaccinated = false
+        req.body.fullyVaccinated = false
     }
     Patient.create(req.body, (error, createdPatient) => {
         res.redirect('/patients')
@@ -65,6 +65,11 @@ router.get('/patients/:id/edit', (req, res) => {
 
 // EDIT
 router.put('/patients/:id', (req, res) => {
+    if (req.body.fullyVaccinated === 'on') {
+        req.body.fullyVaccinated = true
+    } else {
+        req.body.fullyVaccinated = false
+    }
     Patient.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {
         res.redirect('/patients')
     })

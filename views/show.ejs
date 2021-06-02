@@ -25,18 +25,19 @@
         </li>
 
         <li>
-            Date of 2nd Dose<%if(patient.secondDose==='undefined'){%>
-                Doesn't have the 2nd dose.
+            Date of 2nd Dose: <%if(patient.secondDose===''){%>
+                N/a
                 <%}else{%>
                     <%=patient.secondDose%>
                         <% }%>
 
         </li>
-
         <li>
-            <%if(patient.vaccinated===true){%>
-                Fully Vaccinated
-                <%}%>
+            Fully Vaccinated: <%if(patient.fullyVaccinated===true){%>
+                Yes
+                <%}else{%>
+                    No
+                    <%}%>
         </li>
 
     </ul>

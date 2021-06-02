@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const patientSchema = new mongoose.Schema({
     name: { type: String, require: true },
     dob: { type: String, require: true },
-    vaccinated: { type: Boolean },
+    fullyVaccinated: { type: Boolean },
     vaccine: { type: String, require: true },
     firstDose: String,
     secondDose: String

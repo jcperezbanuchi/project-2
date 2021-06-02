@@ -34,11 +34,8 @@ mongoose.connection.once('open', () => {
     console.log('connected to mongo')
 })
 
-
-
 //Method Override
 app.use(methodOverride('_method'))
-
 
 //controllers
 const patientControllers = require('./controllers/patient.js');
@@ -48,6 +45,7 @@ const userController = require('./controllers/user_controller.js')
 app.use('/users', userController)
 app.use('/sessions', sessionsController)
 app.use(patientControllers);
+
 //custom middleware
 const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {
