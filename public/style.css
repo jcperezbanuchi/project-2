@@ -4,6 +4,7 @@
 body{
     background-color: beige;
     font-family: 'Barlow', sans-serif ;
+    text-align: center;
 }
 
 li{
@@ -28,3 +29,10 @@ li{
 .container, header{
     text-align: center;
 }
+ main{
+     margin: 70px;
+ }
+
+ .btn-small{
+    margin: 20px
+ }
