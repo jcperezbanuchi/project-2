@@ -5,30 +5,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Add a New Patient</title>
 </head>
 
 <body>
-    <h1>Add a New Patient</h1>
-    <form action="/patients" method="POST">
-        Name: <input type="text" name="name" required />
-        <br>
-        Date of Birth: <input type="date" name="dob" required />
-        <br>
-        Vaccine Manufacturer: <input type="text" name="vaccine" required />
-        <br>
-        First Dose date: <input type="date" name="firstDose" required />
-        <br>
-        Second Dose Date: <input type="date" name="secondDose" />
-        <br>
-        Fully Vaccinated: <input type="checkbox" name="fullyVaccinated" />
-        <br>
-        <input type="submit" name="" value="Add Patient">
-    </form>
-    <button><a href="/patients">Back</a></button>
+    <div class="new">
+        <div class="container">
+            <h1>Add a New Patient</h1>
+            <form class="form-horizontal" action="/patients" method="POST">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label"> Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" placeholder="name" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Date of birth" class="col-sm-2 control-label">Date of Birth: </label>
+                    <div class="col-sm-10">
+                        <input type="date" name="dob" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="vaccine manufacturer" class="col-sm-2 control-label">Vaccine Manufacturer: </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="vaccine" placeholder="vaccine manufacturer" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="first dose" class="col-sm-2 control-label"> First Dose date: </label>
+                    <div class="col-sm-10">
+                        <input type="date" name="firstDose" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="second dose" class="col-sm-2 control-label">Second Dose Date:</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="secondDose" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fully vaccinated" class="col-sm-2 control-label">Fully Vaccinated:</label>
+                    <input type="checkbox" name="fullyVaccinated" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Add Patient">
+                    <button><a href="/patients">Back</a></button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
 </body>
 
 </html>

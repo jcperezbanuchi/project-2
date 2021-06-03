@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
@@ -14,24 +14,27 @@
 </head>
 
 <body>
-
-    <header id='header'>
+    <div class="container">
         <h1>Covid-19 Vaccine Patients Records</h1>
-        <nav>
+        <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <a href="/patients/new">Add a new Patient</a></li>
-                <% if (currentUser) { %>
-                    Welcome <%= currentUser.username %>
-                        <form action="/sessions?_method=DELETE" method="POST">
-                            <input type="submit" value="Log Out" class="btn-small red" />
-                        </form>
-
+                <div class="navbar-nav">
+                    <a class="nav-link active add" href="/patients/new">Add a new Patient</a>
+                    <% if (currentUser) { %>
+                        <div class="nav-link active">
+                            Welcome <%= currentUser.username %>
+                        </div>
+                        <div class="nav-link active">
+                            <form action="/sessions?_method=DELETE" method="POST">
+                                <input type="submit" value="Log Out" class="btn" />
+                            </form>
+                        </div>
                         <%}%>
 
-            </div>
+                </div>
             </div>
         </nav>
-    </header>
+    </div>
     <main>
         <table class="table table-sm table-bordered table-striped table-hover">
             <thead>
@@ -46,19 +49,20 @@
                 <%for(let i=0; i < patient.length;i++){%>
                     <tr>
 
-                        <td> <a href="/patients/<%=patient[i].id%>">
+                        <td> <a class="patient" href="/patients/<%=patient[i].id%>">
                                 <%=patient[i].name %>
                         </td>
                         </a>
                         <% if (patient[i].fullyVaccinated===true ){ %>
-                            <td> Fully vaccinated</td>
+                            <td> <span class="green">Fully vaccinated</span></td>
                             <%} else { %>
-                                <td>Missing 1 dose</td>
+                                <td><span class="red">Missing 1 dose</span></td>
                                 <% }%>
-                                    <td><button><a href="/patients/<%=patient[i].id%>/edit">Edit</a></button></td>
+                                    <td><button class="btn-default"><a class="edit"
+                                                href="/patients/<%=patient[i].id%>/edit">Edit</a></button></td>
                                     <td>
                                         <form action="/patients/<%=patient[i].id %>?_method=DELETE" method="POST">
-                                            <input type="submit" value="Delete"></i>
+                                            <input type="submit" class="btn-danger" value="Delete"></i>
                                         </form>
                                     </td>
                     </tr>

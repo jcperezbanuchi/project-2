@@ -43,7 +43,6 @@ router.post('/patients', (req, res) => {
 
 //show 
 router.get('/patients/:id', (req, res) => {
-
     Patient.findById(req.params.id, (error, foundPatient) => {
         res.render('show.ejs', {
             patient: foundPatient,

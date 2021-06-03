@@ -5,47 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Patient</title>
 </head>
 
 <body>
+    <div class="show">
+        <div class="container">
+            <h1>
+                <%=patient.name%> Records:
+            </h1>
+            <ul>
+                <li>
+                    <h5>Date of Birth: </h5>
+                    <%=patient.dob%>
+                </li>
+                <li>
+                    <h5>Vaccine Manufacturer: </h5>
+                    <%=patient.vaccine%>
+                </li>
+                <li>
+                    <h5>Date of 1st dose:</h5>
+                    <%=patient.firstDose%>
+                </li>
 
-    <h1>
-        <%=patient.name%> Records:
-    </h1>
-    <ul>
-        <li>
-            Date of Birth: <%=patient.dob%>
-        </li>
-        <li>
-            Vaccine Manufacturer: <%=patient.vaccine%>
-        </li>
-        <li>
-            Date of 1st dose: <%=patient.firstDose%>
-        </li>
-
-        <li>
-            Date of 2nd Dose: <%if(patient.secondDose===''){%>
-                N/a
-                <%}else{%>
-                    <%=patient.secondDose%>
-                        <% }%>
-
-        </li>
-        <li>
-            Fully Vaccinated: <%if(patient.fullyVaccinated===true){%>
-                Yes
-                <%}else{%>
-                    No
-                    <%}%>
-        </li>
-
-    </ul>
-    <a href="/patients">Back Patients</a>
-
+                <li>
+                    <h5>Date of 2nd Dose: </h5>
+                    <%if(patient.secondDose===''){%>
+                        N/a
+                        <%}else{%>
+                            <%=patient.secondDose%>
+                                <% }%>
+                </li>
+                <li>
+                    <h5>Fully Vaccinated: </h5>
+                    <%if(patient.fullyVaccinated===true){%>
+                        Yes
+                        <%}else{%>
+                            No
+                            <%}%>
+                </li>
+            </ul>
+            <a href="/patients">Back to Patients</a>
+        </div>
+    </div>
 </body>
 
 
