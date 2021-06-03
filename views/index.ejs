@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
     <title>Covid-19 Vaccine Records</title>
 </head>
 
@@ -15,43 +18,63 @@
         <nav>
             <div class="container">
                 <div class="text-center">
-                    <ul>
-                        <li><a href="/patients/new">Add a new Patient</a></li>
-                        <% if (currentUser) { %>
-                            <li>Welcome <%= currentUser.username %>
-                            </li>
-                            <li>
-                                <form action="/sessions?_method=DELETE" method="POST">
-                                    <input type="submit" value="Log Out" class="btn-small red" />
-                                </form>
-                            </li>
+
+                    <a href="/patients/new">Add a new Patient</a></li>
+                    <% if (currentUser) { %>
+                        Welcome <%= currentUser.username %>
+
+
+                            <form action="/sessions?_method=DELETE" method="POST">
+                                <input type="submit" value="Log Out" class="btn-small red" />
+                            </form>
+
                             <%}%>
-                    </ul>
+
                 </div>
             </div>
         </nav>
     </header>
-    <main id="site-main">
-        <ul>
-            <%for(let i=0; i < patient.length;i++){%>
-                <li class='patient'>
-                    <a href="/patients/<%=patient[i].id%>">
-                        <%=patient[i].name %>
-                    </a>
-                    <% if (patient[i].fullyVaccinated===true ){ %>
-                        is fully vaccinated
-                        <%} else { %>
-                            missing 1 dose
-                            <% }%>
-                                <form action="/patients/<%=patient[i].id %>?_method=DELETE" method="POST">
-                                    <input type="submit" value="Delete">
-                                </form>
-                                <!-- edit link -->
-                                <button><a href="/patients/<%=patient[i].id%>/edit">Edit</a></button>
-                </li>
-                <%}%>
+    <main>
+        <table class="table table-sm table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let i=0; i < patient.length;i++){%>
+                    <tr>
 
-        </ul>
+                        <td> <a href="/patients/<%=patient[i].id%>">
+                                <%=patient[i].name %>
+                        </td>
+                        </a>
+                        <% if (patient[i].fullyVaccinated===true ){ %>
+                            <td> Fully vaccinated</td>
+                            <%} else { %>
+                                <td>Missing 1 dose</td>
+                                <% }%>
+                                    <td><button><a href="/patients/<%=patient[i].id%>/edit">Edit</a></button></td>
+                                    <td>
+
+                                        <form action="/patients/<%=patient[i].id %>?_method=DELETE" method="POST">
+                                            <input type="submit" value="Delete"></i>
+                                        </form>
+
+                                    </td>
+                    </tr>
+                    <%}%>
+            </tbody>
+
+
+
+
+
+
+            </div>
     </main>
 </body>
 

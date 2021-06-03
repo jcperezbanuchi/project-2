@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
-:root{
-    --dark: #2b2d42;
-    --light: #adb5bd;
-    --border: #dee2e6;
-    --border-btn: #edf2f4;
-} 
 
 body{
     background-color: beige;
@@ -17,4 +11,20 @@ li{
     display:inline-block;
     border: 2px solid cadetblue;
     padding: 10px;
+}
+
+.login{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.btn-login{
+    margin-top: 200px;   
+}
+
+#login{
+    margin-left: 200px;
+}
+.container, header{
+    text-align: center;
 }

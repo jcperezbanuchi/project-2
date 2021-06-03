@@ -5,28 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <form action="/patients/<%=patient.id%>?_method=PUT" method="POST">
-        Name: <input type="text" name="name" value="<%=patient.name%>" />
-        <br>
-        Date of Birth: <input type="date" name="dob" value="<%=patient.dob%>" />
-        <br>
-        Vaccine Manufacturer: <input type="text" name="vaccine" value="<%=patient.vaccine%>" />
-        <br>
-        First Dose date: <input type="date" name="firstDose" value="<%=patient.firstDose%>" />
-        <br>
-        Second Dose Date: <input type="date" name="secondDose" value="<%=patient.secondDose%>" />
-        <br>
-        Fully Vaccinated: <input type="checkbox" name="fullyVaccinated" <% if (patient.fullyVaccinated===true) { %>
-        checked
-        <% } %> />
+    <div class="container">
+        <form action="/patients/<%=patient.id%>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%=patient.name%>" />
             <br>
-            <input type="submit" name="" value="Edit Patient">
-    </form>
-    <button><a href="/patients">Back</a></button>
+            Date of Birth: <input type="date" name="dob" value="<%=patient.dob%>" />
+            <br>
+            Vaccine Manufacturer: <input type="text" name="vaccine" value="<%=patient.vaccine%>" />
+            <br>
+            First Dose date: <input type="date" name="firstDose" value="<%=patient.firstDose%>" />
+            <br>
+            Second Dose Date: <input type="date" name="secondDose" value="<%=patient.secondDose%>" />
+            <br>
+            Fully Vaccinated: <input type="checkbox" name="fullyVaccinated" <% if (patient.fullyVaccinated===true) { %>
+            checked
+            <% } %> />
+                <br>
+                <input type="submit" name="" value="Edit Patient">
+        </form>
+        <button><a href="/patients">Back</a></button>
+    </div>
 </body>
 
 </html>
