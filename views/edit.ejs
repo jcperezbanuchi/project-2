@@ -15,25 +15,49 @@
     <div class="edit">
         <div class="container">
             <h2>Edit Patient Records</h2>
-            <form action="/patients/<%=patient.id%>?_method=PUT" method="POST">
-                Name: <input type="text" name="name" value="<%=patient.name%>" />
+            <form class="form" action="/patients/<%=patient.id%>?_method=PUT" method="POST">
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 control-label"> Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" value="<%=patient.name%>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="Date of birth" class="col-sm-2 control-label">Date of Birth: </label>
+                    <div class="col-sm-10">
+                        <input type="date" name="dob" value="<%=patient.dob%>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="vaccine manufacturer" class="col-sm-2 control-label">Vaccine Manufacturer: </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="vaccine" value="<%=patient.vaccine%>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="first dose" class="col-sm-2 control-label"> First Dose date: </label>
+                    <div class="col-sm-10">
+                        <input type="date" name="firstDose" value="<%=patient.firstDose%>" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="second dose" class="col-sm-2 control-label">Second Dose Date:</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="secondDose" value="<%=patient.secondDose%>" />
+                    </div>
+                </div>
+                <div class="form-check">
+                    <label for="fully vaccinated" class="col-sm-2 control-label">Fully Vaccinated:</label>
+                    <input type="checkbox" name="fullyVaccinated" <% if (patient.fullyVaccinated===true) { %>
+                    checked
+                    <% } %> />
+                </div>
                 <br>
-                Date of Birth: <input type="date" name="dob" value="<%=patient.dob%>" />
-                <br>
-                Vaccine Manufacturer: <input type="text" name="vaccine" value="<%=patient.vaccine%>" />
-                <br>
-                First Dose date: <input type="date" name="firstDose" value="<%=patient.firstDose%>" />
-                <br>
-                Second Dose Date: <input type="date" name="secondDose" value="<%=patient.secondDose%>" />
-                <br>
-                Fully Vaccinated: <input type="checkbox" name="fullyVaccinated" <% if (patient.fullyVaccinated===true) {
-                    %>
-                checked
-                <% } %> />
-                    <br>
+                <div class="form-group">
                     <input type="submit" name="" value="Edit Patient">
+                    <button><a href="/patients">Back</a></button>
+                </div>
             </form>
-            <button><a href="/patients">Back</a></button>
         </div>
     </div>
 </body>

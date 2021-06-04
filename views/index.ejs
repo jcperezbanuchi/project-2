@@ -21,12 +21,14 @@
                 <div class="navbar-nav">
                     <a class="nav-link active add" href="/patients/new">Add a new Patient</a>
                     <% if (currentUser) { %>
-                        <div class="nav-link active">
-                            Welcome <%= currentUser.username %>
+                        <div class="nav-link active welcome">
+                            <h3> Welcome <%= currentUser.username %>
+                            </h3>
                         </div>
-                        <div class="nav-link active">
+                        <div class="nav-link active align-self-end" id="logout">
                             <form action="/sessions?_method=DELETE" method="POST">
-                                <input type="submit" value="Log Out" class="btn" />
+                                <input type="submit" value="Log Out" class="btn btn-outline-secondary align-self-end"
+                                    id="logout" />
                             </form>
                         </div>
                         <%}%>
@@ -36,7 +38,7 @@
         </nav>
     </div>
     <main>
-        <table class="table table-sm table-bordered table-striped table-hover">
+        <table class=" table table-sm table-bordered table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">Patient Name</th>
@@ -58,11 +60,12 @@
                             <%} else { %>
                                 <td><span class="red">Missing 1 dose</span></td>
                                 <% }%>
-                                    <td><button class="btn-default"><a class="edit"
-                                                href="/patients/<%=patient[i].id%>/edit">Edit</a></button></td>
+                                    <td><button class="btn btn-outline-primary"><a id="edit"
+                                                href="/patients/<%=patient[i].id%>/edit">Edit</a></button>
+                                    </td>
                                     <td>
                                         <form action="/patients/<%=patient[i].id %>?_method=DELETE" method="POST">
-                                            <input type="submit" class="btn-danger" value="Delete"></i>
+                                            <input type="submit" class="btn btn-outline-danger" value="Delete"></i>
                                         </form>
                                     </td>
                     </tr>

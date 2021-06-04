@@ -3,7 +3,7 @@
 
 body{
     font-family: 'Fira Sans Condensed', sans-serif !important;
-    background-color: whitesmoke !important;
+    background-color: rgb(230, 230, 230) !important;
 }
  
 h1{
@@ -16,8 +16,9 @@ h1{
     margin-top: 100px;
 }
 
-.btn-login{
-    margin-top: 200px;   
+#signup, #login{
+    margin-top: 200px; 
+    background-color: lightgray !important;     
 }
 
 #login{
@@ -29,10 +30,6 @@ h1{
      margin: 70px;
  }
 
- /* .btn-small{
-    margin: 20px
- } */
-
  .main{
     background-image: url(https://images.unsplash.com/photo-1584036533827-45bce166ad94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80);
     background-size: cover;
@@ -43,7 +40,7 @@ h1{
      color:red
  }
  
- .patient , .edit{
+ .patient , #edit{
      text-decoration: none !important;
      color: inherit
  }
@@ -67,7 +64,7 @@ h1{
   
  }
 
- .new{
+ .new, .edit {
     position: absolute;
     left: 30%;
     top: 25%;
@@ -86,3 +83,27 @@ h1{
  li{
      list-style: none;
  }
+ 
+ .welcome{
+     position:absolute;
+     left: 40%
+ }
+
+ .loginpage, .back{
+     text-decoration: none !important;
+     color: black;
+ }
+
+ .loginpage:hover{
+     color: white;
+ }
+
+ #header{
+    font-size:4rem !important;
+    font-weight: bolder;
+ }
+
+ .navbar, .table{
+     border:1px solid gray !important;
+ }
+
