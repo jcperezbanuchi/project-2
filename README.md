@@ -2,8 +2,7 @@
 A Covid-19 vaccine database, where you can add, edit or delete "patients" from the database.
 
 # Demo
-Demo app here: 
-
+Demo app here: https://project-2-records.herokuapp.com/
 # Technology
 Built using Node.js, EJS, Mongodb, Mongoose, Express, CSS
 
